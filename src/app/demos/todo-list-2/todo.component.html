@@ -1,0 +1,23 @@
+<div class="container main-container">
+  <form (ngSubmit)="addTask()" novalidate>
+    <div class="form-horizontal row">
+      <div class="form-group">
+        <div class="col-md-10">
+          <input class="form-control" id="task" type="text" placeholder="New task" [formControl]="taskName" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-4 col-md-offset-2">
+          <span><button class="btn btn-success" id="add" type="submit">Add</button></span>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="row text-center">
+    <tasks class="col-md-3" status="BACKLOG"></tasks>
+    <tasks class="col-md-3" status="TO_DO"></tasks>
+    <tasks class="col-md-3" status="IN_PROGRESS"></tasks>
+    <tasks class="col-md-3" status="DONE"></tasks>
+  </div>
+</div>

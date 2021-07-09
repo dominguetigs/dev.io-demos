@@ -1,0 +1,3 @@
+<div class="tasks">
+  <task-list [list]="todoList$ | async" (toggle)="onToggle($event)"> {{ status | taskstatus }} </task-list>
+</div>

@@ -1,0 +1,48 @@
+<div class="task-list">
+  <h3>
+    <ng-content></ng-content>
+  </h3>
+
+  <table class="table table-striped">
+    <tbody>
+      <tr *ngFor="let item of list; index as i">
+        <td>
+          <span>{{ item.nome }}</span>
+
+          <span
+            *ngIf="item.status === 'TO_DO'"
+            class="task-list__retroceder"
+            (click)="toggleItem(item, 'BACKLOG')"
+          ></span>
+          <span
+            *ngIf="item.status === 'DONE'"
+            class="task-list__retroceder"
+            (click)="toggleItem(item, 'IN_PROGRESS')"
+          ></span>
+          <span
+            *ngIf="item.status === 'IN_PROGRESS'"
+            class="task-list__retroceder"
+            (click)="toggleItem(item, 'TO_DO')"
+          ></span>
+
+          <span
+            *ngIf="item.status === 'BACKLOG'"
+            class="task-list__iniciado"
+            (click)="toggleItem(item, 'TO_DO')"
+          ></span>
+          <span
+            *ngIf="item.status === 'TO_DO'"
+            class="task-list__iniciado"
+            (click)="toggleItem(item, 'IN_PROGRESS')"
+          ></span>
+
+          <span
+            *ngIf="item.status === 'IN_PROGRESS'"
+            class="task-list__finalizado"
+            (click)="toggleItem(item, 'DONE')"
+          ></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
